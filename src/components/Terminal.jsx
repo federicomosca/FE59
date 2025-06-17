@@ -4,7 +4,11 @@ import CommandHandler from './CommandHandler';
 import '../styles/terminal.css';
 
 export default function Terminal() {
- const [output, setOutput] = useState(['FiveNine Terminal v1.0']);
+ const [output, setOutput] = useState([
+  'fivenine terminal v1.0',
+  'Use the shell to navigate. Type "help" for manual.',
+  'Available: "user create", "user list", etc.'
+]);
  const [input, setInput] = useState('');
  
  const addOutput = (content) => {

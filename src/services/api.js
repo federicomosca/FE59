@@ -10,9 +10,12 @@ class Api {
     return response.json();
   }
 
-  async getUsers() {
-    return this.request('/users');
-  }
+async getUsers() {
+  return this.request('/api/users/get-all', {
+    method: 'POST', 
+    body: JSON.stringify("lolWUT")
+  });
+}
 
   async createUser(userData) {
     return this.request('/users/signUp', {

@@ -27,6 +27,15 @@ class CommandHandler {
     }
   }
 
+  static async createUser(userData, addOutput) {
+  try {
+    const result = await api.createUser(userData);
+    addOutput(`User created with ID: ${result}`);
+  } catch (error) {
+    addOutput(`Failed to create user: ${error.message}`);
+  }
+}
+
   static async handleUser(action, args, addOutput) {
     switch(action) {
       case 'list':
