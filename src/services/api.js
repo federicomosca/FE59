@@ -11,9 +11,8 @@ class Api {
   }
 
 async getUsers() {
-  return this.request('/api/users/get-all', {
-    method: 'POST', 
-    body: JSON.stringify("lolWUT")
+  return this.request('/users/get-all', {
+    method: 'POST'
   });
 }
 
@@ -22,6 +21,15 @@ async getUsers() {
       method: 'POST',
       body: JSON.stringify(userData)
     });
+  }
+
+  static async loginUser(loginData, addOutput) {
+    try {
+      const result = await api.loginUser(loginData);
+      addOutput(result === 'ok' ? 'Login successful' : 'Login failed');
+    } catch (error) {
+      addOutput(`Login error: ${error.message}`);
+    }
   }
 }
 
